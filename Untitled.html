@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دعوة زفاف عمر وبلقيس</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lateef&family=Reem+Kufi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --red: #e31b23;
+      --black: #000000;
+      --white: #ffffff;
+      --green: #009639;
+      --gold: #ceb16e;
+      --dark-green: #012a2d;
+    }
+    
+    body {
+      font-family: 'Reem Kufi', 'Lateef', serif;
+      background-color: var(--black);
+      background-image: url('https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      min-height: 100vh;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(1, 42, 45, 0.7);
+      z-index: -1;
+    }
+    
+    .card {
+      max-width: 800px;
+      margin: 40px auto;
+      background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(42,21,0,0.8) 100%);
+      border: 3px solid var(--gold);
+      border-radius: 20px;
+      padding: 50px 30px;
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, var(--red), var(--gold), var(--green));
+      z-index: -1;
+      opacity: 0.3;
+      border-radius: 25px;
+    }
+    
+    h1, h2, p {
+      margin: 20px 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    
+    h1.animated, h2.animated, p.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    h1 {
+      font-size: 3em;
+      color: var(--gold);
+      text-shadow: 0 0 10px rgba(206, 177, 110, 0.5);
+      position: relative;
+      padding-bottom: 15px;
+      font-family: 'Reem Kufi', sans-serif;
+      transition-delay: 0.2s;
+    }
+    
+    h1::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      right: 25%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    
+    h2 {
+      font-size: 2.0em;
+      color: var(--green);
+      transition-delay: 0.4s;
+    }
+    
+    .countdown {
+      font-size: 2em;
+      margin: 20px 0;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px dashed var(--gold);
+      display: inline-block;
+      font-weight: bold;
+      color: var(--gold);
+      font-family: 'Reem Kufi', sans-serif;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.8s ease-out;
+      transition-delay: 0.6s;
+    }
+    
+    .countdown.animated {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      border: 1px solid var(--red);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+      transition-delay: 0.8s;
+    }
+    
+    iframe.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    form {
+      margin: 30px;
+      text-align: right;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+      transition-delay: 1s;
+    }
+    
+    form.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--gold);
+      font-family: 'Lateef', serif;
+      font-size: 1.6em;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      transition: all 0.3s;
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--red);
+      box-shadow: 0 0 10px rgba(227, 27, 35, 0.5);
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    input::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    button {
+      background: linear-gradient(to right, var(--red), var(--gold));
+      color: var(--white);
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 1.6em;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(227, 27, 35, 0.4);
+      font-family: 'Reem Kufi', sans-serif;
+display: block;
+  margin-left: 0;  /* محاذاة لليسار */
+  margin-right: auto;
+    }
+    
+    button:hover {
+      background: linear-gradient(to right, var(--gold), var(--red));
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(227, 27, 35, 0.6);
+    }
+    
+    button:active {
+      transform: translateY(1px);
+    }
+    .notice {
+  text-align: right;
+  font-size: 1.2em;
+  color: #ffdddd;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 10px;
+  border-right: 4px solid var(--red);
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+    .quran {
+      font-size: 2.8em;
+      color: var(--gold);
+      margin: 25px 0;
+      text-shadow: 0 0 5px rgba(206, 177, 110, 0.5);
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .quran.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .welcome {
+      font-size: 2em;
+      color: var(--white);
+      background: rgba(227, 27, 35, 0.3);
+      padding: 20px;
+      border-radius: 15px;
+      border-right: 5px solid var(--green);
+      margin: 30px 0;
+      font-family: 'Lateef', serif;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease-out;
+      transition-delay: 0.3s;
+    }
+    
+    .welcome.animated {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .side-by-side {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      text-align: center;
+      font-size: 2.4em;
+      margin: 20px 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+      transition-delay: 0.5s;
+    }
+    
+    .side-by-side.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .side-by-side div {
+      width: 45%;
+      padding: 20px;
+      position: relative;
+      transition: all 0.5s;
+      background: rgba(0, 150, 57, 0.1);
+      border-radius: 15px;
+    }
+    
+    .side-by-side div:hover {
+      transform: scale(1.05);
+      background: rgba(0, 150, 57, 0.2);
+    }
+    
+    .side-by-side strong {
+      display: block;
+      font-size: 1.5em;
+      color: var(--gold);
+      margin-top: 10px;
+      text-shadow: 0 0 5px rgba(206, 177, 110, 0.5);
+    }
+    
+    .info-icons {
+      font-size: 2em;
+      margin: 30px 0;
+      line-height: 2em;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+      transition-delay: 0.7s;
+    }
+    
+    .info-icons.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .info-icons i {
+      margin-left: 10px;
+      color: var(--gold);
+    }
+    
+    .info-icons div {
+      transition: all 0.3s;
+      padding: 5px;
+      border-radius: 8px;
+    }
+    
+    .info-icons div:hover {
+      background-color: rgba(227, 27, 35, 0.2);
+      transform: translateX(-5px);
+    }
+    
+    .palestine-pattern {
+      position: absolute;
+      opacity: 0.3;
+      z-index: -1;
+    }
+    
+    .pattern-1 {
+      top: 20px;
+      left: 20px;
+      font-size: 3em;
+      transform: rotate(-30deg);
+    }
+    
+    .pattern-2 {
+      bottom: 20px;
+      right: 20px;
+      font-size: 3em;
+      transform: rotate(30deg);
+    }
+    
+    .pattern-3 {
+      top: 50%;
+      right: 10px;
+      font-size: 2em;
+    }
+    
+    .pattern-4 {
+      top: 50%;
+      left: 10px;
+      font-size: 2em;
+    }
+    
+    .couple-names {
+      font-size: 3em;
+      margin: 30px 0;
+      color: var(--red);
+      text-shadow: 0 0 10px rgba(227, 27, 35, 0.7);
+      position: relative;
+      font-family: 'Reem Kufi', sans-serif;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.8s ease-out;
+      transition-delay: 0.4s;
+    }
+    
+    .couple-names.animated {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .couple-names::before, .couple-names::after {
+      content: "✿";
+      margin: 0 20px;
+      color: var(--green);
+    }
+    
+    .heart-pulse {
+      animation: pulse 1.5s infinite;
+      display: inline-block;
+      margin: 0 10px;
+      color: var(--red);
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+    
+    .olive-branch {
+      width: 150px;
+      margin: 20px auto;
+      opacity: 0.7;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.8s ease-out;
+      transition-delay: 0.6s;
+    }
+    
+    .olive-branch.animated {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .dabke-dancers {
+      width: 200px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: space-around;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+      transition-delay: 0.8s;
+    }
+    
+    .dabke-dancers.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .dabke-dancer {
+      width: 40px;
+      height: 60px;
+      background-color: var(--red);
+      border-radius: 50% 50% 0 0;
+      position: relative;
+      animation: dabke 1s infinite alternate;
+    }
+    
+    .dabke-dancer::before {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 5px;
+      width: 30px;
+      height: 15px;
+      background-color: var(--gold);
+      border-radius: 0 0 50% 50%;
+    }
+    
+    .dabke-dancer:nth-child(2) {
+      animation-delay: 0.2s;
+      background-color: var(--green);
+    }
+    
+    .dabke-dancer:nth-child(3) {
+      animation-delay: 0.4s;
+      background-color: var(--gold);
+    }
+    
+    @keyframes dabke {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+    
+    .music-control {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: rgba(227, 27, 35, 0.7);
+      color: var(--white);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 100;
+      font-size: 1.5em;
+      transition: all 0.3s;
+    }
+    
+    .music-control:hover {
+      background-color: var(--gold);
+      color: var(--black);
+      transform: scale(1.1);
+    }
+    
+    .audio-alert {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid var(--gold);
+      display: none;
+      z-index: 100;
+      font-family: 'Lateef', serif;
+      font-size: 1.2em;
+      animation: pulse 2s infinite;
+    }
+    
+    .audio-alert i {
+      margin-left: 5px;
+    }
+    
+    @media (max-width: 600px) {
+      .side-by-side {
+        flex-direction: column;
+        font-size: 2em;
+      }
+      .side-by-side div {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .card {
+        padding: 30px 15px;
+      }
+      h1 {
+        font-size: 2.2em;
+      }
+      h2 {
+        font-size: 1.8em;
+      }
+      .quran {
+        font-size: 2em;
+      }
+      .couple-names {
+        font-size: 2.2em;
+      }
+      .welcome {
+        font-size: 1.6em;
+      }
+      .audio-alert {
+        left: 10px;
+        right: 10px;
+        bottom: 70px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="music-control" id="musicControl">
+    <i class="fas fa-music"></i>
+  </div>
+  
+  <div class="audio-alert" id="audioAlert">
+    <i class="fas fa-hand-pointer"></i> الرجاء النقر على أي مكان في الصفحة لتفعيل الموسيقى
+  </div>
+
+  <div class="card">
+    <div class="palestine-pattern pattern-1">✿</div>
+    <div class="palestine-pattern pattern-2">✿</div>
+    <div class="palestine-pattern pattern-3">❁</div>
+    <div class="palestine-pattern pattern-4">❁</div>
+    
+    <div class="quran">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+    <div class="quran">قال الله تعالى: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"</div>
+    
+    <div class="welcome">
+      بقلوب ملؤها المحبة والفرح، نفتح لكم أبواب أفراحنا لنشارككم أجمل لحظات حياتنا.<br>
+      حضوركم شرف لنا وفرحة تزيد أفراحنا بهجة وإشراقاً.
+    </div>
+    
+    
+    <div class="side-by-side">
+      <div> أبناء المرحوم بسام أحمد سليم</div>
+      <div>السيد حسان عبد أبو السعود</div>
+    </div>
+    
+    <p style="font-size: 2.4em;">يتشرفان بدعوتكم لحضور حفل زفاف</p>
+    
+    <div class="couple-names">
+      عمر <span class="heart-pulse">♥</span> بلقيس
+    </div>
+    
+    <div class="info-icons">
+      <div><i class="fas fa-map-marker-alt"></i> قاعات مؤتة - عمان، الأردن - قاعة رقم ١</div>
+      <div><i class="fas fa-calendar-alt"></i> الأحد 10/08/2025</div>
+      <div><i class="fas fa-clock"></i> الساعة 9:00 مساءً</div>
+    </div>
+
+    <h2>العد التنازلي للزفاف</h2>
+    <div class="countdown" id="countdown"></div>
+
+    <h2>موقع القاعة</h2>
+    <iframe src="https://maps.google.com/maps?q=31.911171282750015,35.91358656062491&hl=ar&z=14&amp;output=embed"></iframe>
+
+<p class="notice">بأمر من إدارة القاعة يمنع اصطحاب الأطفال.</p>
+
+
+    <h2>أرسل رسالة تهنئة</h2>
+    <form id="messageForm">
+      <input type="text" name="name" placeholder="اسمك" required>
+      <textarea name="message" placeholder="اكتب تهنئتك هنا" rows="4" required></textarea>
+    </form>
+
+      <button type="submit"><i class="fas fa-paper-plane"></i> إرسال</button>
+  </div>
+
+  <audio id="weddingMusic" loop>
+  <source src="https://docs.google.com/uc?export=download&id=1q-4RqG1Fe7xjQ7Pa85DyqkydLXQ9Wta9" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // وظيفة لمراقبة العناصر وإضافة تأثيرات عند الظهور
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('h1, h2, p, .quran, .welcome, .side-by-side, .couple-names, .olive-branch, .dabke-dancers, .info-icons, .countdown, iframe, form');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('animated');
+        } else {
+          element.classList.remove('animated');
+        }
+      });
+    }
+    
+    // تشغيل الوظيفة عند التحميل وعند التمرير
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // العد التنازلي
+    const countdown = document.getElementById('countdown');
+    const weddingDate = new Date("2025-08-10T21:00:00").getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        countdown.innerHTML = "تهانينا! اليوم هو يوم الزفاف 🎉";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days} يوم / ${hours} ساعة / ${minutes} دقيقة / ${seconds} ثانية`;
+    }, 1000);
+
+    // إدارة النموذج
+    document.getElementById('messageForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = this.name.value;
+      const message = this.message.value;
+
+      window.open(`mailto:omar.balqees.wedding@gmail.com?subject=تهنئة زفاف من ${encodeURIComponent(name)}&body=من: ${encodeURIComponent(name)}%0D%0Aالبريد الإلكتروني: ${encodeURIComponent(email)}%0D%0Aالرسالة:%0D%0A${encodeURIComponent(message)}`);
+      
+      alert('تم إرسال تهنئتك بنجاح! شكراً لك');
+      this.reset();
+    });
+    
+    // التحكم بالموسيقى
+    const music = document.getElementById('weddingMusic');
+    const musicControl = document.getElementById('musicControl');
+    const audioAlert = document.getElementById('audioAlert');
+    let isPlaying = false;
+    let audioEnabled = false;
+    
+    // محاولة تفعيل الصوت عند أي تفاعل
+    function enableAudio() {
+      if (!audioEnabled) {
+        music.play()
+          .then(() => {
+            music.pause();
+            music.currentTime = 0;
+            audioEnabled = true;
+            audioAlert.style.display = 'none';
+          })
+          .catch(error => {
+            console.log("يحتاج المستخدم للتفاعل أولاً");
+          });
+      }
+    }
+    
+    // إضافة مستمعات الأحداث
+    document.addEventListener('click', enableAudio);
+    document.addEventListener('scroll', enableAudio);
+    document.addEventListener('keydown', enableAudio);
+    
+    // التحكم بالموسيقى
+    musicControl.addEventListener('click', function() {
+      if (!audioEnabled) {
+        audioAlert.style.display = 'block';
+        return;
+      }
+      
+      if (isPlaying) {
+        music.pause();
+        this.innerHTML = '<i class="fas fa-volume-mute"></i>';
+      } else {
+        music.play()
+          .then(() => {
+            this.innerHTML = '<i class="fas fa-music"></i>';
+          })
+          .catch(error => {
+            alert("الرجاء النقر على أي مكان في الصفحة أولاً لتفعيل الصوت");
+          });
+      }
+      isPlaying = !isPlaying;
+    });
+    
+    // عرض رسالة التنبيه بعد 3 ثواني إذا لم يتم تفعيل الصوت
+    setTimeout(() => {
+      if (!audioEnabled) {
+        audioAlert.style.display = 'block';
+      }
+    }, 3000);
+  </script>
+</body>
+</html>
