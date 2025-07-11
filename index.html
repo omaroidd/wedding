@@ -719,25 +719,25 @@ display: block;
     
     // محاولة تفعيل الصوت عند أي تفاعل
     function enableAudio() {
-      if (!audioEnabled) {
-        music.play()
-          .then(() => {
-            music.pause();
-            music.currentTime = 0;
-            audioEnabled = true;
-            audioAlert.style.display = 'none';
-          })
-          .catch(error => {
-            console.log("يحتاج المستخدم للتفاعل أولاً");
-          });
-      }
-    }
-    
+  if (!audioEnabled) {
+    music.play()
+      .then(() => {
+        audioEnabled = true;
+        isPlaying = true;
+        musicControl.innerHTML = '<i class="fas fa-music"></i>';
+        audioAlert.style.display = 'none';
+      })
+      .catch(error => {
+        console.log("يحتاج المستخدم للتفاعل أولاً");
+      });
+  }
+}
     // إضافة مستمعات الأحداث
     document.addEventListener('click', enableAudio);
     document.addEventListener('scroll', enableAudio);
     document.addEventListener('keydown', enableAudio);
-    
+    document.addEventListener('touchstart', enableAudio); // دعم الشاشات اللمسية
+
     // التحكم بالموسيقى
     musicControl.addEventListener('click', function() {
       if (!audioEnabled) {
